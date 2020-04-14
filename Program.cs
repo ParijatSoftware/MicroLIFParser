@@ -11,27 +11,17 @@ namespace MicroLIFParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Starting file parser...");
-            Console.WriteLine("Loading file...");
-
-            if (FileParserHelper.IsMicroLIFFile())
-                Console.WriteLine("Yes it is MicroLIF!");
-            else
-                Console.WriteLine("No it is not MicroLIF!");
-
-            Console.ReadLine();
+            Console.WriteLine("Operation started...");
 
             var records = new List<MarcRecord>();
             var lifParser = new MicroLIFFormatParser();
 
             while (lifParser.MoveNext())
-            {
                 records.Add(lifParser.Current);
-            }
 
-            Console.WriteLine(records.Count);
+            Console.WriteLine($"Total Records: {records.Count}");
+            Console.WriteLine("Operation Complete.");
             Console.ReadLine();
-
         }
     }
 }

@@ -11,7 +11,7 @@ namespace MicroLIFParser
         readonly StreamReader reader;
         public MicroLIFFormatParser()
         {
-            var filePath = Directory.GetCurrentDirectory() + @"\LIFs\22691407.mrc";
+            var filePath = Directory.GetCurrentDirectory() + @"\LIFs\SampleLif2";
             reader = new StreamReader(File.Open(filePath, FileMode.Open));
         }
 
@@ -35,7 +35,7 @@ namespace MicroLIFParser
 
                 do
                 {
-                    if (firstLine != null && !firstLine.StartsWith("LDR")) //If not LDR then probably it Software name and version so need to skip
+                    if (firstLine != null && !firstLine.StartsWith("LDR")) //If not LDR then it is probably Software name and version so need to skip
                     {
                         eor = false;
                         firstLine = null;
@@ -49,6 +49,7 @@ namespace MicroLIFParser
 
                     if (currentLine == null)
                     {
+                        reader.Dispose();
                         currentMarc = null;
                         break;
                     }
@@ -96,7 +97,6 @@ namespace MicroLIFParser
             }
             catch (Exception e)
             {
-
                 throw;
             }
         }

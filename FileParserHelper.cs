@@ -6,7 +6,7 @@ namespace MicroLIFParser
     {
         public static bool IsMicroLIFFile()
         {
-            var filePath = Directory.GetCurrentDirectory() + @"\LIFs\SampleLif";
+            var filePath = Directory.GetCurrentDirectory() + @"\LIFs\SampleLif2";
             using (var reader = new StreamReader(File.Open(filePath, FileMode.Open)))
             {
                 var firstLine = reader.ReadLine();
